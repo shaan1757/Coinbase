@@ -1,20 +1,48 @@
-import React,{ useState } from 'react';
-import fire from "../assets/fire.png"
-import btc from "../assets/btc.png"
-import usdt from "../assets/usdt.png"
+import React, { useState } from 'react'
+import fire from '../assets/fire.png'
+import btc from '../assets/btc.png'
+import usdt from '../assets/usdt.png'
 import gainers from '../assets/gainers.png'
+import TrendingCard from '../components/TrendingCard';
 import recent from '../assets/recent.png'
-import ReactSwitch from 'react-switch';
-import Rate from "./cmc-table/Rate";
+import ReactSwitch from 'react-switch'
+import Rate from './cmc-table/Rate'
 
 const styles = {
-    trendingWrapper: `mx-auto max-w-screen-2xl`,
-    h1: `text-3xl text-white`,
-    flexCenter: `flex items-center`
+  trendingWrapper: `mx-auto max-w-screen-2xl`,
+  h1: `text-3xl text-white`,
+  flexCenter: `flex items-center`,
 }
 
+const trendingData = [
+  {
+    number: 1,
+    symbol: 'BTC',
+    name: 'Bitcoin',
+    icon: btc,
+    isIncrement: true,
+    rate: '2.34%',
+  },
+  {
+    number: 2,
+    symbol: 'USDT',
+    name: 'Tether',
+    icon: usdt,
+    isIncrement: false,
+    rate: '9.34%',
+  },
+  {
+    number: 3,
+    symbol: 'BTC',
+    name: 'Bitcoin',
+    icon: btc,
+    isIncrement: true,
+    rate: '2.34%',
+  },
+]
+
 const Trending = () => {
-    const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(false)
   return (
     <div className="text-white">
       <div className={styles.trendingWrapper}>
@@ -49,11 +77,21 @@ const Trending = () => {
         </div>
         <br />
         <div className={styles.flexCenter}>
-          {/* 
-                    <TrendingCard title='Trending' icon={fire} trendingData={trendingData} />
-                    <TrendingCard title='Biggest Gainers' icon={gainers} trendingData={trendingData} />
-                    <TrendingCard title='Recently Added' icon={recently} trendingData={trendingData} />
-                */}
+          <TrendingCard
+            title="Trending"
+            icon={fire}
+            trendingData={trendingData}
+          />
+          <TrendingCard
+            title="Biggest Gainers"
+            icon={gainers}
+            trendingData={trendingData}
+          />
+          <TrendingCard
+            title="Recently Added"
+            icon={recent}
+            trendingData={trendingData}
+          />
         </div>
       </div>
     </div>

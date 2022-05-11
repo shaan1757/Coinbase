@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
+import { CoinbaseProvider } from "../context/context";
 import { MoralisProvider } from "react-moralis"
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -10,7 +11,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       }
       appId={`${process.env.NEXT_PUBLIC_APP_ID}` ?? 'AppId Undefined Fallback'}
     >
-      <Component {...pageProps} />
+      <CoinbaseProvider>
+        <Component {...pageProps} />
+      </CoinbaseProvider>
     </MoralisProvider>
   )
 }
