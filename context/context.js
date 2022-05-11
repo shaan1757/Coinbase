@@ -7,7 +7,7 @@ export const CoinbaseProvider = ({ children }) => {
         try {
             const res = await fetch("/api/getTopTen")
             const data = await res.json();
-            return data;
+            return data?.data;
         } catch (error) {
             console.log(error.message)
         }

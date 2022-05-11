@@ -1,33 +1,19 @@
+
+
 export default function handler(req,res) {
     const getData = async () => {
-        let response = null;
-        new Promise( async (resolve, reject) => {
-            try {
-                response = await fetch(
-                  `https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest`,
-                  {
-                    method: 'GET',
-                    headers: {
-                      Accept: '*/*',
-                      'X-CMC_PRO_API_KEY': process.env.CMC_API_KEY,
-                    },
-                  }
-                )
-            } catch (error) {
-              response = null;
-              console.log(error)
-              reject(error)  
+          const response = await fetch(
+            `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=e2e0733d-5ee0-4150-8bf9-e0d5cd12b07e`,
+            {
+              method: 'GET',
+              headers: {
+                Accept: '*/*',
+                'X-CMC_PRO_API_KEY': 'e2e0733d-5ee0-4150-8bf9-e0d5cd12b07e',
+              },
             }
-            if(response){
-                const json = response.data;
-                console.log(json)
-                resolve(json)
-            }
-        })
-        res.status(200).json({
-            success:true,
-            response,
-        })
+          )
+          const data = await response.json()
+          res.status(200).json({ data })
     }
     ( async () => await getData())();
 }
