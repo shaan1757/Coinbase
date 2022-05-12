@@ -11,7 +11,6 @@ const styles = {
 }
 
 const CBTableRow = ({
-  key,
   starNum,
   coinName,
   coinSymbol,
@@ -57,7 +56,7 @@ const CBTableRow = ({
 
     const viewPrice = () => {
         router.push(
-            `/currencies/info?symbol=${coinSymbol}&coin=${coinName}&price=${price}`
+            `/currencies/price?symbol=${coinSymbol}&coin=${coinName}&price=${price}`
         )
     }
 
