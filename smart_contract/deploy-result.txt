@@ -1,0 +1,5 @@
+Compiled 9 Solidity files successfully
+Dogecoin deployed to: 0x3554e6dF31564a36E89bcdf1764609beCA3C8f24
+LinkToken deployed to: 0xDD6F6e1288c8b388a90cBb9b76DfDc8f08278Ac6
+DaiToken deployed to: 0xf0618c7b7B631B3b50E239d305BD417ea25C2cE3
+UsdcToken deployed to: 0xc878F8337C637a91261B892edA4D2d5b1bc2c8C2
